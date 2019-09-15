@@ -1,0 +1,6 @@
+
+-- 软链接
+sudo ln -s /var/yourapp/yourapp.jar /etc/init.d/yourapp
+
+-- 运行脚本
+/etc/init.d/yourapp start|stop|restart

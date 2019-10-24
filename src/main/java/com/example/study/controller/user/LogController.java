@@ -1,6 +1,5 @@
 package com.example.study.controller.user;
 
-import com.example.study.bean.common.CommonException;
 import com.example.study.bean.vo.user.UserVO;
 import com.example.study.service.user.UserService;
 import com.example.study.util.RedisUtil;
@@ -17,8 +16,8 @@ import java.util.List;
  * @description:
  */
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/log")
+public class LogController {
 
     @Autowired
     private UserService userService;
@@ -44,13 +43,13 @@ public class UserController {
     public String json() throws Exception {
         //userService.getList();
         //throw new CommonException("发生错误2");
-        return "";
+        return "eeeeee";
     }
 
     @GetMapping("/log")
     public String log() {
-      //  userService.getList();
-       // redisUtill.expire("sss", 100L);
+        //  userService.getList();
+        // redisUtill.expire("sss", 100L);
         return "success";
     }
 

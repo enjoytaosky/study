@@ -30,7 +30,7 @@ public class Swagger {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Spring Boot中使用Swagger2构建RESTful APIs")
+                .title("Spring Boot中使用Swagger2构建RESTfull APIs")
                 .description("更多Spring Boot")
                 .version("1.0")
                 .build();

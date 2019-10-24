@@ -1,6 +1,7 @@
 package com.example.study.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -22,7 +24,6 @@ import javax.sql.DataSource;
  * @description:
  */
 @Slf4j
-@Component
 @MapperScan(basePackages = {"com.example.study.dao.*"}, sqlSessionTemplateRef = "sqlSessionTemplate")
 public class DataSourceConfiguration {
 
@@ -51,8 +52,8 @@ public class DataSourceConfiguration {
 
     @Bean(name = "dataSourceTransactionManager")
     @Primary
-    public DataSourceTransactionManager transactionManager() {
-        return new DataSourceTransactionManager(dataSource());
+    public DataSourceTransactionManager transactionManager(@Qualifier("dataSource") DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
     }
 
     @Bean(name = "sqlSessionFactory")
@@ -68,7 +69,7 @@ public class DataSourceConfiguration {
     @Bean(name = "sqlSessionTemplate")
     @Primary
     public SqlSessionTemplate sqlSessionTemplate(@Qualifier("sqlSessionFactory") SqlSessionFactory
-                                                             sqlSessionFactory) throws Exception {
+                                                         sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 

@@ -31,7 +31,4 @@ public class RedisProperties {
     @Value("${spring.redis.jedis.pool.max-active}")
     private String maxActive;
 
-    public String getHost() {
-        return host;
-    }
 }

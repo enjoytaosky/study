@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @date: 2019/9/3 16:59
  * @description:
  */
-@Component
 @Data
 public class DataSourceConfig {
 

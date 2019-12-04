@@ -60,6 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 //权限拒绝的页面
                 .exceptionHandling().accessDeniedPage("/403");
+        // .and().logout().logoutSuccessHandler();
         // http.addFilterAt(A,)
     }
 

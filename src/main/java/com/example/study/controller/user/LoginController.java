@@ -2,6 +2,8 @@ package com.example.study.controller.user;
 
 import com.example.study.bean.entity.user.User;
 import com.example.study.bean.request.LoginRequest;
+import com.example.study.bean.response.BaseResponse;
+import com.example.study.util.SecurityUtils;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,4 +53,12 @@ public class LoginController {
 
         return "redirect:index";
     }
+
+    @ApiOperation(value = "登出", notes = "")
+    @RequestMapping(value = "/loginOut", method = RequestMethod.POST)
+    public BaseResponse<String> userLoginOut(@RequestBody LoginRequest requestBody, HttpServletRequest request) {
+        SecurityUtils.logout();
+        return new BaseResponse<String>(true, "success", 200, "success");
+    }
+
 }

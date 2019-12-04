@@ -1,6 +1,7 @@
-package com.example.study.bean.entity;
+package com.example.study.bean.vo;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.Version;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -8,12 +9,13 @@ import java.util.Date;
 
 /**
  * @author: taotao
- * @date: 2019/10/23 09:35
+ * @date: 2019/10/30 15:05
  * @description:
  */
 @Data
-public class BaseEntity implements Serializable {
-    private static final long serialVersionUID = -9147044312525189806L;
+public class BaseVO implements Serializable {
+    private static final long serialVersionUID = 6914794569490686248L;
+
 
     /**
      * 创建时间
@@ -37,12 +39,4 @@ public class BaseEntity implements Serializable {
      * 域id
      */
     private String domainId;
-
-
-    /**
-     * 软删除标志
-     */
-    @TableLogic
-    private Integer deleteFlag;
-
 }

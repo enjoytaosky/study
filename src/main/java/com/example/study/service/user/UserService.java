@@ -18,14 +18,6 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
 
-   /* @Autowired
-    UserDao userDao;
-
-    public void getList() {
-        int i = userDao.countUserList();
-        log.info("i:" + i);
-    }*/
-
     @Autowired
     private UserMapper userMapper;
 
